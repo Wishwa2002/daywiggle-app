@@ -1,5 +1,6 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 type Greeting =
   | "Good Morning"
@@ -16,7 +17,7 @@ const getGreeting = (hour: number): Greeting => {
 };
 
 export default function DateTimeDisplay() {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,15 +42,55 @@ export default function DateTimeDisplay() {
 
   const greeting = getGreeting(currentDate.getHours());
 
+  const handleNotificationPress = () => {
+    console.log("Notification pressed");
+  };
+
+  const handleProfilePress = () => {
+    console.log("Profile pressed");
+  };
+
   return (
-    <View className="items-center justify-center px-5 py-6">
-      <Text className="mb-2 text-xl font-semibold text-gray-800">
-        {greeting}
-      </Text>
+    <View className="w-full flex-row items-start justify-between px-5 py-6">
+      {/* Date, greeting, and time */}
+      <View className="flex-1 items-start pr-4">
+        <Text className="text-xl font-semibold text-gray-800">
+          {greeting}
+        </Text>
 
-      <Text className="text-4xl font-bold text-gray-950">{time}</Text>
+        <Text className="mt-2 text-base text-gray-500">
+          {date}
+        </Text>
+      </View>
 
-      <Text className="mt-2 text-base text-gray-500">{date}</Text>
+      {/* Notification and profile buttons */}
+      <View className="flex-row items-center gap-3">
+        <Pressable
+          onPress={handleNotificationPress}
+          className="h-11 w-11 items-center justify-center rounded-full bg-gray-100 active:bg-gray-200"
+          accessibilityRole="button"
+          accessibilityLabel="Open notifications"
+        >
+          <Ionicons
+            name="notifications-outline"
+            size={23}
+            color="#374151"
+          />
+        </Pressable>
+
+        <Pressable
+          onPress={handleProfilePress}
+          className="h-11 w-11 items-center justify-center rounded-full bg-gray-200 active:bg-gray-300"
+          accessibilityRole="button"
+          accessibilityLabel="Open profile"
+        >
+          <Ionicons
+            name="person-outline"
+            size={23}
+            color="#374151"
+          />
+        </Pressable>
+      </View>
     </View>
   );
 }
