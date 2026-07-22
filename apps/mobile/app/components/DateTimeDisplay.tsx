@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
@@ -47,14 +48,13 @@ export default function DateTimeDisplay() {
   };
 
   const handleProfilePress = () => {
-    console.log("Profile pressed");
+     router.push("/profile");
   };
-
   return (
     <View className="w-full flex-row items-start justify-between px-5 py-6">
       {/* Date, greeting, and time */}
       <View className="flex-1 items-start pr-4">
-        <Text className="text-xl font-semibold text-gray-800">
+        <Text className="text-2xl font-semibold text-gray-800">
           {greeting}
         </Text>
 
