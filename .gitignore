@@ -1,27 +1,19 @@
-# Dependencies
-node_modules/
-
-# Environment files
+# Environment variables
 .env
 .env.*
 !.env.example
 
-# Build output
+# Dependencies and builds
+node_modules/
 dist/
-build/
 
-# Expo
-.expo/
+# Local SQLite database
+apps/backend/data/*.db
+apps/backend/data/*.db-shm
+apps/backend/data/*.db-wal
 
-# Testing
-coverage/
+# Uploaded profile images
+apps/backend/uploads/profiles/*
+!apps/backend/uploads/profiles/.gitkeep
 
-# Logs
-*.log
-npm-debug.log*
-
-# Editors and operating systems
 .vscode/
-.idea/
-.DS_Store
-Thumbs.db
