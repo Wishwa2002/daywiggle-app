@@ -6,7 +6,7 @@ import DateTimeDisplay from "../app/components/DateTimeDisplay";
 export default class index extends Component {
   render() {
     return (
-         <SafeAreaView className="flex-1 bg-gray-50" edges={["top"]}>
+         <SafeAreaView className="flex-1 bg-blue-100" edges={["top"]}>
           <ScrollView
             className="flex-1"
             showsVerticalScrollIndicator={false}
