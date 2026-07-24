@@ -11,7 +11,11 @@
       "supportsTablet": true
     },
     "android": {
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.daywiggleapp.daywiggleapp"
     },
     "web": {
       "bundler": "metro",
@@ -23,6 +27,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a0da4c25-522a-4ffd-b8e2-8f45b349fcd1"
+      }
+    },
+    "owner": "daywiggle-app"
   }
 }
